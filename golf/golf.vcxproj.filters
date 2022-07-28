@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="setup">
+      <UniqueIdentifier>{8d52a880-5a60-4b34-89d3-44e8c786210b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\textures">
+      <UniqueIdentifier>{9715ac32-a755-49d0-947b-16c4bb81ab5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\shaders">
+      <UniqueIdentifier>{48118a03-9d54-4de8-a6ff-77489db91800}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\textures\power">
+      <UniqueIdentifier>{856c4f9d-503e-4010-a8ef-ea37523d0978}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stb.cpp">
+      <Filter>setup</Filter>
+    </ClCompile>
+    <ClCompile Include="glad.c">
+      <Filter>setup</Filter>
+    </ClCompile>
+    <ClCompile Include="Object2D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject2D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Shader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Object2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="grass.frag">
+      <Filter>Resource Files\shaders</Filter>
+    </None>
+    <None Include="grass.vert">
+      <Filter>Resource Files\shaders</Filter>
+    </None>
+    <None Include="ball.vert">
+      <Filter>Resource Files\shaders</Filter>
+    </None>
+    <None Include="ball.frag">
+      <Filter>Resource Files\shaders</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="ball.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="square.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="line.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="hole.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="powerHigh.png">
+      <Filter>Resource Files\textures\power</Filter>
+    </Image>
+    <Image Include="powerLow.png">
+      <Filter>Resource Files\textures\power</Filter>
+    </Image>
+    <Image Include="powerMHigh.png">
+      <Filter>Resource Files\textures\power</Filter>
+    </Image>
+    <Image Include="powerMLow.png">
+      <Filter>Resource Files\textures\power</Filter>
+    </Image>
+    <Image Include="obstacle.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="endtext.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="controlstext.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
