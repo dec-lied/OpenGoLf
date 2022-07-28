@@ -4,7 +4,7 @@ GameManager::GameManager(Shader* shaderProgram, float* deltaTime, GameObject2D& 
 	: deltaTime(deltaTime)
 	, shaderProgram(shaderProgram)
 	, GS(GameState::MENU)
-	, level(6)
+	, level(1)
 	, ball(ball)
 	, hole(hole)
 	, endText(endText)
@@ -21,7 +21,7 @@ void GameManager::addObstacle(float x, float y, float z, float width, float heig
 
 void GameManager::clearObstacles()
 {
-	int size = this->obstacles.size();
+	size_t size = this->obstacles.size();
 	for (int i = 0; i < size; i++)
 	{
 		delete this->obstacles.back().first;
@@ -66,19 +66,19 @@ void GameManager::loadLevel(int levelNum)
 	case 3:
 		this->ball.setPos(0.55f, -0.55f, 0.0f);
 		this->hole.setPos(-0.545f, 0.545f, 0.0f);
-		this->addObstacle(0.0f, 0.0f, 0.0f, 0.06, 0.06f, 5.0f, 5.0f);
-		this->addObstacle(0.725f, 0.2f, 0.0f, 0.06, 0.06f, 5.0f, 5.0f);
-		this->addObstacle(-0.725f, -0.2f, 0.0f, 0.06, 0.06f, 5.0f, 5.0f);
+		this->addObstacle(0.0f, 0.0f, 0.0f, 0.06f, 0.06f, 5.0f, 5.0f);
+		this->addObstacle(0.725f, 0.2f, 0.0f, 0.06f, 0.06f, 5.0f, 5.0f);
+		this->addObstacle(-0.725f, -0.2f, 0.0f, 0.06f, 0.06f, 5.0f, 5.0f);
 		break;
 
 	case 4:
 		this->ball.setPos(-0.55f, -0.55f, 0.0f);
 		this->hole.setPos(0.545f, 0.545f, 0.0f);
-		this->addObstacle(0.0f, 0.0f, 0.0f, 0.06, 0.06f, 7.0f, 7.0f);
-		this->addObstacle(0.0f, .615f, 0.0f, 0.06, 0.06f, 7.5f, 10.0f);
-		this->addObstacle(0.0f, -.615f, 0.0f, 0.06, 0.06f, 7.5f, 10.0f);
-		this->addObstacle(0.545f, 0.0f, 0.0f, 0.06, 0.06f, 5.0f, 5.0f);
-		this->addObstacle(-0.545f, 0.0f, 0.0f, 0.06, 0.06f, 5.0f, 5.0f);
+		this->addObstacle(0.0f, 0.0f, 0.0f, 0.06f, 0.06f, 7.0f, 7.0f);
+		this->addObstacle(0.0f, .615f, 0.0f, 0.06f, 0.06f, 7.5f, 10.0f);
+		this->addObstacle(0.0f, -.615f, 0.0f, 0.06f, 0.06f, 7.5f, 10.0f);
+		this->addObstacle(0.545f, 0.0f, 0.0f, 0.06f, 0.06f, 5.0f, 5.0f);
+		this->addObstacle(-0.545f, 0.0f, 0.0f, 0.06f, 0.06f, 5.0f, 5.0f);
 		break;
 
 	case 5:
