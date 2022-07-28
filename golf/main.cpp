@@ -90,7 +90,7 @@ int main()
 	}
 
 	glfwMakeContextCurrent(window);
-	glfwSwapInterval(1); // vsync off
+	glfwSwapInterval(0); // vsync off
 	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 	glfwSetWindowPos(window, 
 		monitorX + (videoMode->width - WINDOWWIDTH) / 2,
@@ -235,6 +235,8 @@ int main()
 		ballGO2D.forceTranslation();
 		ballGO2D.applyFriction(1.0f, 1.0f);
 
+		GM.renderObstacles();
+
 		switch(GM.GS)
 		{
 			case GameState::AIMING:
@@ -329,8 +331,6 @@ int main()
 		quadShader.setFloat("opacity", ballGO2D.opacity);
 		quadShader.setMatrix4fv("view", 1, GL_FALSE, glm::value_ptr(ballGO2D.viewMatrix));
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, (void*)0x00);
-
-		GM.renderObstacles();
 
 		if (GM.showEnd)
 		{
