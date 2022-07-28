@@ -82,7 +82,7 @@ int main()
 
 	std::cout << "window resolution: " << WINDOWWIDTH << "x" << WINDOWHEIGHT << std::endl;
 
-	GLFWwindow* window = glfwCreateWindow(WINDOWWIDTH, WINDOWHEIGHT, "golf", nullptr, nullptr);
+	GLFWwindow* window = glfwCreateWindow(WINDOWWIDTH, WINDOWHEIGHT, "OpenGoLf", nullptr, nullptr);
 	if (!window)
 	{
 		std::cout << "failed to initialize window" << std::endl;
