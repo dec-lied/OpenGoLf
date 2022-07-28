@@ -68,6 +68,9 @@
     <ClInclude Include="GameObject2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="grass.frag">
@@ -117,5 +120,13 @@
     <Image Include="controlstext.png">
       <Filter>Resource Files\textures</Filter>
     </Image>
+    <Image Include="..\..\..\..\..\Downloads\thumbnail.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="golf.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

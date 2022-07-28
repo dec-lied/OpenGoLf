@@ -90,7 +90,7 @@ int main()
 	}
 
 	glfwMakeContextCurrent(window);
-	glfwSwapInterval(0); // vsync off
+	glfwSwapInterval(1); // vsync off
 	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 	glfwSetWindowPos(window, 
 		monitorX + (videoMode->width - WINDOWWIDTH) / 2,

@@ -75,8 +75,8 @@ void GameManager::loadLevel(int levelNum)
 		this->ball.setPos(-0.55f, -0.55f, 0.0f);
 		this->hole.setPos(0.545f, 0.545f, 0.0f);
 		this->addObstacle(0.0f, 0.0f, 0.0f, 0.06f, 0.06f, 7.0f, 7.0f);
-		this->addObstacle(0.0f, .615f, 0.0f, 0.06f, 0.06f, 7.5f, 10.0f);
-		this->addObstacle(0.0f, -.615f, 0.0f, 0.06f, 0.06f, 7.5f, 10.0f);
+		this->addObstacle(0.0f, .615f, 0.0f, 0.06f, 0.06f, 5.0f, 5.0f);
+		this->addObstacle(0.0f, -.615f, 0.0f, 0.06f, 0.06f, 5.0f, 5.0f);
 		this->addObstacle(0.545f, 0.0f, 0.0f, 0.06f, 0.06f, 5.0f, 5.0f);
 		this->addObstacle(-0.545f, 0.0f, 0.0f, 0.06f, 0.06f, 5.0f, 5.0f);
 		break;

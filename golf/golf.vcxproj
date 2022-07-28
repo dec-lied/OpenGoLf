@@ -153,6 +153,7 @@
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject2D.h" />
     <ClInclude Include="Object2D.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Texture.h" />
   </ItemGroup>
@@ -163,6 +164,7 @@
     <None Include="grass.vert" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\..\..\..\..\Downloads\thumbnail.ico" />
     <Image Include="controlstext.png" />
     <Image Include="endtext.png" />
     <Image Include="hole.png" />
@@ -174,6 +176,9 @@
     <Image Include="powerMLow.png" />
     <Image Include="square.png" />
     <Image Include="ball.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="golf.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

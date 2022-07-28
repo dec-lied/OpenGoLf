@@ -1,2 +1,5 @@
-﻿  main.cpp
+﻿  GameManager.cpp
+  main.cpp
+  Generating Code...
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
   golf.vcxproj -> C:\Users\Gavin\source\repos\opengl\golf\x64\Debug\golf.exe
