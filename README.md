@@ -2,7 +2,7 @@
 <p>7/28/22 CAS Reflection 3 - OpenGoLf </p>
 
 <h1> How to download and execute </h1>
-<p> <b> This program requires you to be using MSVC (Visual Studio). </b> I use VC2022, but older versions may work. This project uses C++20. <br /> 
+<p> <b> This program requires you to be using MSVC (Visual Studio). </b> I use VS2022, but older versions may work. This project uses C++20. <br /> 
   To download, type the following command in any terminal: </p>
 
 ```
