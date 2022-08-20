@@ -4,7 +4,7 @@
 <h1> How to download and execute </h1>
 <p> <b> Note about source code: </b> the irrKlang dlls are not included in the /golf folder due to them being architecture dependant. Thus, if you want to run the source code yourself, drag the respective dlls from the /standalone folder into the /golf folder where main.cpp resides </p>
 <p> <b> This program requires you to be using MSVC (Visual Studio). </b> I use VS2022, but older versions may work. This project uses C++20. <br /> 
-  To download, type the following command in any terminal: </p>
+  To download, install git if not alreayd installed and type the following command in any terminal: </p>
 
 ```
 git clone https://github.com/dec-lied/OpenGoLf.git
