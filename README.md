@@ -32,7 +32,9 @@ program: </p>
 
 <h1> Disclaimer </h1>
 <p> In having a friend test the game, the collision detection was not working as intended on their pc. I am looking into the issue, but hopefull it works on your end </p>
-<p> Also, Windows marks the x86 release as a wacatac virus, but it is a false positive and this is a virustotal scan of it. I am not sure really why it marks it but that's just good old windows <p> ![image](https://user-images.githubusercontent.com/103293120/185760086-76ccbb5d-2598-422f-a775-d6bb85f1bad1.png)
+<p> Also, Windows marks the x86 release as a wacatac virus, but it is a false positive and this is a virustotal scan of it. I am not sure really why it marks it but that's just good old windows <p> 
+
+![image](https://user-images.githubusercontent.com/103293120/185760086-76ccbb5d-2598-422f-a775-d6bb85f1bad1.png)
 
 
 <h1> Screenshots of the game </h1>
