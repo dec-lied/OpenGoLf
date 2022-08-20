@@ -25,6 +25,9 @@
     <Filter Include="Resource Files\textures\power">
       <UniqueIdentifier>{856c4f9d-503e-4010-a8ef-ea37523d0978}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\audio">
+      <UniqueIdentifier>{b79c03ed-21fd-4907-9912-56ab46959042}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -73,60 +76,80 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="grass.frag">
+    <None Include="shaders\ball.frag">
       <Filter>Resource Files\shaders</Filter>
     </None>
-    <None Include="grass.vert">
+    <None Include="shaders\ball.vert">
       <Filter>Resource Files\shaders</Filter>
     </None>
-    <None Include="ball.vert">
+    <None Include="shaders\grass.frag">
       <Filter>Resource Files\shaders</Filter>
     </None>
-    <None Include="ball.frag">
+    <None Include="shaders\grass.vert">
       <Filter>Resource Files\shaders</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="ball.png">
-      <Filter>Resource Files\textures</Filter>
-    </Image>
-    <Image Include="square.png">
-      <Filter>Resource Files\textures</Filter>
-    </Image>
-    <Image Include="line.png">
-      <Filter>Resource Files\textures</Filter>
-    </Image>
-    <Image Include="hole.png">
-      <Filter>Resource Files\textures</Filter>
-    </Image>
-    <Image Include="powerHigh.png">
-      <Filter>Resource Files\textures\power</Filter>
-    </Image>
-    <Image Include="powerLow.png">
-      <Filter>Resource Files\textures\power</Filter>
-    </Image>
-    <Image Include="powerMHigh.png">
-      <Filter>Resource Files\textures\power</Filter>
-    </Image>
-    <Image Include="powerMLow.png">
-      <Filter>Resource Files\textures\power</Filter>
-    </Image>
-    <Image Include="obstacle.png">
-      <Filter>Resource Files\textures</Filter>
-    </Image>
-    <Image Include="endtext.png">
-      <Filter>Resource Files\textures</Filter>
-    </Image>
-    <Image Include="controlstext.png">
-      <Filter>Resource Files\textures</Filter>
-    </Image>
     <Image Include="..\..\..\..\..\Downloads\thumbnail.ico">
       <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="textures\ball.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="textures\controlstext.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="textures\endtext.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="textures\grass.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="textures\hole.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="textures\line.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="textures\square.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="textures\powerMLow.png">
+      <Filter>Resource Files\textures\power</Filter>
+    </Image>
+    <Image Include="textures\powerHigh.png">
+      <Filter>Resource Files\textures\power</Filter>
+    </Image>
+    <Image Include="textures\powerLow.png">
+      <Filter>Resource Files\textures\power</Filter>
+    </Image>
+    <Image Include="textures\powerMHigh.png">
+      <Filter>Resource Files\textures\power</Filter>
+    </Image>
+    <Image Include="textures\brick.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="textures\blackwall.png">
+      <Filter>Resource Files\textures</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="golf.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="audio\putt.mp3">
+      <Filter>Resource Files\audio</Filter>
+    </Media>
+    <Media Include="audio\inhole.mp3">
+      <Filter>Resource Files\audio</Filter>
+    </Media>
+    <Media Include="audio\hit.mp3">
+      <Filter>Resource Files\audio</Filter>
+    </Media>
+    <Media Include="audio\bound.mp3">
+      <Filter>Resource Files\audio</Filter>
+    </Media>
   </ItemGroup>
 </Project>

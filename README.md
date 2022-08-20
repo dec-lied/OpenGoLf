@@ -13,9 +13,9 @@ git clone https://github.com/dec-lied/OpenGoLf.git
 program: </p>
 <ol>
   <li> Build it from the source yourself by opening golf.sln and selecting Release as well as x64 or x86 according to your pc architecture then click build.
-       If you decide to do this, be sure to <b> <ins> place the executeable golf.exe into the /assets folder. </ins> </b> </li>
+       If you decide to do this, be sure to <b> <ins> place the executable golf.exe into the /standalone folder and pull the architecture respective dlls from the dll folders into the /standalone folder along with golf.exe. </ins> </b> </li>
   <li> Download the release according to your comuter's architecture from the Releases tab on 
-  <a href="https://github.com/dec-lied/OpenGoLf/releases/tag/v1.0"> this page </a>. </li>
+  <a href="https://github.com/dec-lied/OpenGoLf/releases/tag/V2.0"> this page </a>. </li>
 </ol>
 
 <h1> How to play </h1>

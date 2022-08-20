@@ -4,6 +4,7 @@
 #include <stb/stb_image.h>
 #include <glm/gtc/type_ptr.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <irrKlang/irrKlang.h>
 
 #include <iostream>
 
@@ -32,30 +33,31 @@ void processInput(GLFWwindow* window)
 		glfwSetWindowShouldClose(window, true);
 }
 
-void gameControls(GLFWwindow* window, GameObject2D& ball, GameObject2D& line, float& power, Texture& powerTexture)
+void gameControls(irrklang::ISoundEngine* soundEngine, GLFWwindow* window, GameObject2D& ball, GameObject2D& line, float& power, Texture& powerTexture)
 {
 	if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
 	{
 		power = 0.625f;
-		powerTexture.replaceTexture("powerLow.png", true);
+		powerTexture.replaceTexture("textures/powerLow.png", true);
 	}
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
 	{
 		power = 0.875f;
-		powerTexture.replaceTexture("powerMLow.png", true);
+		powerTexture.replaceTexture("textures/powerMLow.png", true);
 	}
 	if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
 	{
 		power = 1.125f;
-		powerTexture.replaceTexture("powerMHigh.png", true);
+		powerTexture.replaceTexture("textures/powerMHigh.png", true);
 	}
 	if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS)
 	{
 		power = 1.375f;
-		powerTexture.replaceTexture("powerHigh.png", true);
+		powerTexture.replaceTexture("textures/powerHigh.png", true);
 	}
 	if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS || glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_1) == GLFW_PRESS)
 	{
+		soundEngine->play2D("audio/putt.mp3");
 		ball.setForceX(power * -sinf(glm::radians(line.rotation)));
 		ball.setForceY(power * cosf(glm::radians(line.rotation)));
 	}
@@ -137,8 +139,8 @@ int main()
 	glm::mat4 modelMatrix = glm::mat4(1.0f);
 	glm::mat4 projMatrix = glm::ortho(-1.0f, 1.0f, -1.0f, 1.0f);
 
-	Shader grassShader("grass.vert", "grass.frag", false);
-	Shader quadShader("ball.vert", "ball.frag", false);
+	Shader grassShader("shaders/grass.vert", "shaders/grass.frag", false);
+	Shader quadShader("shaders/ball.vert", "shaders/ball.frag", false);
 
 	Object2D grassO2D(grassVertices, sizeof(grassVertices), grassIndices, sizeof(grassIndices));
 	grassO2D.vertexAttrib(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (void*)0x00);
@@ -148,13 +150,13 @@ int main()
 	centerQuadO2D.vertexAttrib(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (void*)0x00);
 	centerQuadO2D.vertexAttrib(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (void*)(3 * sizeof(GLfloat)));
 
-	Texture grassTexture("square.png", true);
-	Texture ballTexture("ball.png", true);
-	Texture lineTexture("line.png", true);
-	Texture holeTexture("hole.png", true);
-	Texture powerTexture("powerMHigh.png", true);
-	Texture controlsTextTexture("controlstext.png", true);
-	Texture endTextTexture("endtext.png", true);
+	Texture grassTexture("textures/square.png", true);
+	Texture ballTexture("textures/ball.png", true);
+	Texture lineTexture("textures/line.png", true);
+	Texture holeTexture("textures/hole.png", true);
+	Texture powerTexture("textures/powerMHigh.png", true);
+	Texture controlsTextTexture("textures/controlstext.png", true);
+	Texture endTextTexture("textures/endtext.png", true);
 
 	GameObject2D ballGO2D(0.0f, -0.55f, 0.0f, 0.06f, 0.06f, &deltaTime);
 	GameObject2D lineGO2D(0.0f, -0.55f, 0.0f, 0.06f, 0.06f, &deltaTime);
@@ -166,11 +168,12 @@ int main()
 	powerGO2D.opacity = 0.5f;
 
 	GameManager GM(&quadShader, &deltaTime, ballGO2D, holeGO2D, endTextGO2D);
-	GM.addObstacle(0.5f, 0.0f, 0.0f, 0.06f, 0.06f, 5.0f, 5.0f);
-	GM.addObstacle(-0.5f, 0.0f, 0.0f, 0.6f, 0.6f, 5.0f, 5.0f);
 
 	float power = 1.125f;
 	bool displayText = false;
+
+	irrklang::ISoundEngine* soundEngine = irrklang::createIrrKlangDevice();
+	bool canPlayInHoleSound = true;
 
 	while (!glfwWindowShouldClose(window))
 	{
@@ -240,7 +243,7 @@ int main()
 		switch(GM.GS)
 		{
 			case GameState::AIMING:
-				gameControls(window, ballGO2D, lineGO2D, power, powerTexture);
+				gameControls(soundEngine, window, ballGO2D, lineGO2D, power, powerTexture);
 
 				lineGO2D.setPos(ballGO2D.x, ballGO2D.y, 0.0f);
 				lineGO2D.rotateDep(-4.0f * atan2f(sinf((float)glfwGetTime()), cosf((float)glfwGetTime())) * (180.0f / 3.1415926535897f),
@@ -261,14 +264,21 @@ int main()
 
 				lineTexture.bindTexture();
 				glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, (void*)0x00);
+				canPlayInHoleSound = true;
 				break;
 
 			case GameState::MOVING:
 				// wall collision detection
 				if (ballGO2D.x + (ballGO2D.width / 2.0f) >= 1.0f || ballGO2D.x - (ballGO2D.width / 2.0f) <= -1.0f)
+				{
 					ballGO2D.forceX = -ballGO2D.forceX;
+					soundEngine->play2D("audio/bound.mp3");
+				}
 				if (ballGO2D.y + (ballGO2D.height / 2.0f) >= 1.0f || ballGO2D.y - (ballGO2D.height / 2.0f) <= -1.0f)
+				{
 					ballGO2D.forceY = -ballGO2D.forceY;
+					soundEngine->play2D("audio/bound.mp3");
+				}
 
 				for (int i = 0; i < GM.obstacles.size(); i++)
 				{
@@ -280,6 +290,7 @@ int main()
 					{
 						ballGO2D.forceX = -ballGO2D.forceX;
 						ballGO2D.setPos(ballGO2D.x - (ballGO2D.width / 5.0f), ballGO2D.y, 0.0f);
+						soundEngine->play2D("audio/hit.mp3");
 					}
 
 					// ball left side encroachment
@@ -290,6 +301,7 @@ int main()
 					{
 						ballGO2D.forceX = -ballGO2D.forceX;
 						ballGO2D.setPos(ballGO2D.x + (ballGO2D.width / 5.0f), ballGO2D.y, 0.0f);
+						soundEngine->play2D("audio/hit.mp3");
 					}
 
 					// ball top side encroachment
@@ -300,6 +312,7 @@ int main()
 					{
 						ballGO2D.forceY = -ballGO2D.forceY;
 						ballGO2D.setPos(ballGO2D.x, ballGO2D.y - (ballGO2D.height / 5.0f), 0.0f);
+						soundEngine->play2D("audio/hit.mp3");
 					}
 
 					// ball bottom side encroachment
@@ -310,13 +323,22 @@ int main()
 					{
 						ballGO2D.forceY = -ballGO2D.forceY;
 						ballGO2D.setPos(ballGO2D.x, ballGO2D.y + (ballGO2D.height / 5.0f), 0.0f);
+						soundEngine->play2D("audio/hit.mp3");
 					}
 				}
+				canPlayInHoleSound = true;
 				break;
 
 			case GameState::HOLE:
 				ballGO2D.setPos(holeGO2D.x, holeGO2D.y, 0.0f);
 				ballGO2D.opacity -= 1.0f * deltaTime;
+
+				if (canPlayInHoleSound)
+				{
+					soundEngine->play2D("audio/inhole.mp3");
+					std::cout << "playing" << std::endl;
+					canPlayInHoleSound = false;
+				}
 
 				if (ballGO2D.opacity <= -2.0f)
 				{

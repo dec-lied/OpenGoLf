@@ -82,8 +82,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;glfw3.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)lib\GLFW32;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;irrKlang.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib\GLFW32;$(SolutionDir)lib\irrKlang32;</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -98,12 +98,14 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;glfw3.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)lib\GLFW32;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;irrKlang.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib\GLFW32;$(SolutionDir)lib\irrKlang32;</AdditionalLibraryDirectories>
+      <NoEntryPoint>false</NoEntryPoint>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -118,8 +120,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)lib\GLFW64;</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glfw3.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib\GLFW64;$(SolutionDir)lib\irrKlang64;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;irrKlang.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -138,8 +140,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)lib\GLFW64;</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glfw3.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib\GLFW64;$(SolutionDir)lib\irrKlang64;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;irrKlang.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
       <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
     </Link>
   </ItemDefinitionGroup>
@@ -162,27 +164,35 @@
     <ClInclude Include="Texture.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ball.frag" />
-    <None Include="ball.vert" />
-    <None Include="grass.frag" />
-    <None Include="grass.vert" />
+    <None Include="shaders\ball.frag" />
+    <None Include="shaders\ball.vert" />
+    <None Include="shaders\grass.frag" />
+    <None Include="shaders\grass.vert" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\..\Downloads\thumbnail.ico" />
-    <Image Include="controlstext.png" />
-    <Image Include="endtext.png" />
-    <Image Include="hole.png" />
-    <Image Include="line.png" />
-    <Image Include="obstacle.png" />
-    <Image Include="powerHigh.png" />
-    <Image Include="powerLow.png" />
-    <Image Include="powerMHigh.png" />
-    <Image Include="powerMLow.png" />
-    <Image Include="square.png" />
-    <Image Include="ball.png" />
+    <Image Include="textures\ball.png" />
+    <Image Include="textures\blackwall.png" />
+    <Image Include="textures\brick.png" />
+    <Image Include="textures\controlstext.png" />
+    <Image Include="textures\endtext.png" />
+    <Image Include="textures\grass.png" />
+    <Image Include="textures\hole.png" />
+    <Image Include="textures\line.png" />
+    <Image Include="textures\powerHigh.png" />
+    <Image Include="textures\powerLow.png" />
+    <Image Include="textures\powerMHigh.png" />
+    <Image Include="textures\powerMLow.png" />
+    <Image Include="textures\square.png" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="golf.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="audio\bound.mp3" />
+    <Media Include="audio\hit.mp3" />
+    <Media Include="audio\inhole.mp3" />
+    <Media Include="audio\putt.mp3" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

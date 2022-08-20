@@ -23,7 +23,7 @@ struct GameManager
 
 	GameManager(Shader* shaderProgram, float* deltaTime, GameObject2D& ball, GameObject2D& hole, GameObject2D& endText);
 
-	void addObstacle(float x, float y, float z, float width, float height, float scaleX, float scaleY);
+	void addObstacle(const char* obstacleName, float x, float y, float z, float width, float height, float scaleX, float scaleY);
 	void clearObstacles();
 	void renderObstacles();
 	void loadLevel(int levelNum);

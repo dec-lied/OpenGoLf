@@ -12,9 +12,9 @@ GameManager::GameManager(Shader* shaderProgram, float* deltaTime, GameObject2D& 
 {
 }
 
-void GameManager::addObstacle(float x, float y, float z, float width, float height, float scaleX, float scaleY)
+void GameManager::addObstacle(const char* obstacleName, float x, float y, float z, float width, float height, float scaleX, float scaleY)
 {
-	this->obstacles.push_back(std::pair<GameObject2D*, Texture*>(new GameObject2D(x, y, z, width, height, this->deltaTime), new Texture("obstacle.png", true)));
+	this->obstacles.push_back(std::pair<GameObject2D*, Texture*>(new GameObject2D(x, y, z, width, height, this->deltaTime), new Texture(obstacleName, true)));
 	this->obstacles.back().first->scaleX = scaleX;
 	this->obstacles.back().first->scaleY = scaleY;
 }
@@ -59,40 +59,62 @@ void GameManager::loadLevel(int levelNum)
 	case 2:
 		this->ball.setPos(0.0f, -0.55f, 0.0f);
 		this->hole.setPos(0.0f, 0.725f, 0.0f);
-		this->addObstacle(0.55f, 0.0f, 0.0f, 0.06f, 0.06f, 5.0f, 5.0f);
-		this->addObstacle(-0.55f, 0.0f, 0.0f, 0.06f, 0.06f, 5.0f, 5.0f);
+		this->addObstacle("textures/grass.png", 0.55f, 0.0f, 0.0f, 0.06f, 0.06f, 5.0f, 5.0f);
+		this->addObstacle("textures/grass.png", -0.55f, 0.0f, 0.0f, 0.06f, 0.06f, 5.0f, 5.0f);
 		break;
 
 	case 3:
 		this->ball.setPos(0.55f, -0.55f, 0.0f);
 		this->hole.setPos(-0.545f, 0.545f, 0.0f);
-		this->addObstacle(0.0f, 0.0f, 0.0f, 0.06f, 0.06f, 5.0f, 5.0f);
-		this->addObstacle(0.725f, 0.2f, 0.0f, 0.06f, 0.06f, 5.0f, 5.0f);
-		this->addObstacle(-0.725f, -0.2f, 0.0f, 0.06f, 0.06f, 5.0f, 5.0f);
+		this->addObstacle("textures/grass.png", 0.0f, 0.0f, 0.0f, 0.06f, 0.06f, 5.0f, 5.0f);
+		this->addObstacle("textures/grass.png", 0.725f, 0.2f, 0.0f, 0.06f, 0.06f, 5.0f, 5.0f);
+		this->addObstacle("textures/grass.png", -0.725f, -0.2f, 0.0f, 0.06f, 0.06f, 5.0f, 5.0f);
 		break;
 
 	case 4:
 		this->ball.setPos(-0.55f, -0.55f, 0.0f);
 		this->hole.setPos(0.545f, 0.545f, 0.0f);
-		this->addObstacle(0.0f, 0.0f, 0.0f, 0.06f, 0.06f, 7.0f, 7.0f);
-		this->addObstacle(0.0f, .615f, 0.0f, 0.06f, 0.06f, 5.0f, 5.0f);
-		this->addObstacle(0.0f, -.615f, 0.0f, 0.06f, 0.06f, 5.0f, 5.0f);
-		this->addObstacle(0.545f, 0.0f, 0.0f, 0.06f, 0.06f, 5.0f, 5.0f);
-		this->addObstacle(-0.545f, 0.0f, 0.0f, 0.06f, 0.06f, 5.0f, 5.0f);
+		this->addObstacle("textures/brick.png", 0.0f, 0.0f, 0.0f, 0.06f, 0.06f, 7.0f, 7.0f);
+		this->addObstacle("textures/grass.png", 0.0f, .615f, 0.0f, 0.06f, 0.06f, 5.0f, 5.0f);
+		this->addObstacle("textures/grass.png", 0.0f, -.615f, 0.0f, 0.06f, 0.06f, 5.0f, 5.0f);
+		this->addObstacle("textures/grass.png", 0.545f, 0.0f, 0.0f, 0.06f, 0.06f, 5.0f, 5.0f);
+		this->addObstacle("textures/grass.png", -0.545f, 0.0f, 0.0f, 0.06f, 0.06f, 5.0f, 5.0f);
 		break;
 
 	case 5:
 		this->ball.setPos(0.725f, 0.725f, 0.0f);
-		this->hole.setPos(0.7275f, -0.7275f, 0.0f);
-		this->addObstacle(0.825f, 0.0f, 0.0f, 0.06f, 0.06f, 5.0f, 5.0f);
-		this->addObstacle(0.5f, 0.0f, 0.0f, 0.06f, 0.06f, 5.0f, 5.0f);
-		this->addObstacle(0.175f, 0.0f, 0.0f, 0.06f, 0.06f, 5.0f, 5.0f);
-		this->addObstacle(0.175f, -0.525f, 0.0f, 0.06f, 0.06f, 5.0f, 5.0f);
-		this->addObstacle(0.175f, 0.55f, 0.0f, 0.06f, 0.06f, 5.0f, 5.0f);
-		this->addObstacle(-0.475f, 0.0f, 0.0f, 0.06f, 0.06f, 10.0f, 10.0f);
+		this->hole.setPos(-0.7275f, -0.7275f, 0.0f);
+		this->addObstacle("textures/brick.png", 0.7f, 0.0f, 0.0f, 0.06f, 0.06f, 7.5f, 7.5f);
+		this->addObstacle("textures/brick.png", 0.0f, 0.0f, 0.0f, 0.06f, 0.06f, 7.5f, 7.5f);
+		this->addObstacle("textures/brick.png", -0.7f, 0.0f, 0.0f, 0.06f, 0.06f, 7.5f, 7.5f);
 		break;
 
 	case 6:
+		this->ball.setPos(0.0f, 0.0f, 0.0f);
+		this->hole.setPos(-0.725f, -0.0f, 0.0f);
+		this->addObstacle("textures/blackwall.png", -0.365f, 0.0f, 0.0f, 0.06f, 0.06f, 7.5f, 7.5f);
+		this->addObstacle("textures/grass.png", -0.365f, -0.65f, 0.0f, 0.06f, 0.06f, 7.5f, 7.5f);
+		this->addObstacle("textures/grass.png", -0.365f, 0.65f, 0.0f, 0.06f, 0.06f, 7.5f, 7.5f);
+		break;
+
+	case 7:
+		this->ball.setPos(-0.915f, 0.915f, 0.0f);
+		this->hole.setPos(0.915f, 0.915f, 0.0f);
+		this->addObstacle("textures/grass.png", -0.4575f, 1.0f, 0.0f, 0.06f, 0.06f, 7.5f, 7.5f);
+		this->addObstacle("textures/grass.png", 0.0, 0.4f, 0.0f, 0.06f, 0.06f, 7.5f, 7.5f);
+		this->addObstacle("textures/grass.png", 0.4575f, 1.0f, 0.0f, 0.06f, 0.06f, 7.5f, 7.5f);
+		this->addObstacle("textures/grass.png", -1.0f, 0.4f, 0.0f, 0.06f, 0.06f, 7.5f, 7.5f);
+		this->addObstacle("textures/grass.png", 1.0f, 0.4f, 0.0f, 0.06f, 0.06f, 7.5f, 7.5f);
+
+		this->addObstacle("textures/grass.png", -0.4575f, -0.2f, 0.0f, 0.06f, 0.06f, 7.5f, 7.5f);
+		this->addObstacle("textures/grass.png", 0.0, 0.4f, -0.8f, 0.06f, 0.06f, 7.5f, 7.5f);
+		this->addObstacle("textures/grass.png", 0.4575f, -0.2f, 0.0f, 0.06f, 0.06f, 7.5f, 7.5f);
+		this->addObstacle("textures/grass.png", -1.0f, -0.8f, 0.0f, 0.06f, 0.06f, 7.5f, 7.5f);
+		this->addObstacle("textures/grass.png", 1.0f, -0.8f, 0.0f, 0.06f, 0.06f, 7.5f, 7.5f);
+		this->addObstacle("textures/grass.png", 0.0f, -0.8f, 0.0f, 0.06f, 0.06f, 7.5f, 7.5f);
+		break;
+
+	case 8:
 		showEnd = true;
 		ball.setPos(0.0f, 0.0f, 0.0f);
 		hole.setPos(1.5f, 1.5f, 0.0f);
