@@ -1,5 +1,5 @@
 # OpenGoLf
-<p>7/28/22 CAS Reflection 3 - OpenGoLf </p>
+<p> 7/28/22 & 8/20/22 CAS Reflection 4 & 5 - OpenGoLf </p>
 
 <h1> How to download and execute </h1>
 <p> <b> Note about source code: </b> the irrKlang dlls are not included in the /golf folder due to them being architecture dependant. Thus, if you want to run the source code yourself, drag the respective dlls from the /standalone folder into the /golf folder where main.cpp resides </p>
